@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.5.6a2](https://github.com/TigreGotico/PyWikiHow/tree/0.5.6a2) (2025-12-19)
+
+[Full Changelog](https://github.com/TigreGotico/PyWikiHow/compare/0.5.6a1...0.5.6a2)
+
+**Merged pull requests:**
+
+- Configure Renovate [\#4](https://github.com/TigreGotico/PyWikiHow/pull/4) ([renovate[bot]](https://github.com/apps/renovate))
+- Add the article 'parts' subdivision, as marked on the TODO list [\#2](https://github.com/TigreGotico/PyWikiHow/pull/2) ([NaelsonDouglas](https://github.com/NaelsonDouglas))
+
 ## [0.5.6a1](https://github.com/TigreGotico/PyWikiHow/tree/0.5.6a1) (2024-10-25)
 
 [Full Changelog](https://github.com/TigreGotico/PyWikiHow/compare/96f2516f3949af064340842a7833996c834028fe...0.5.6a1)
