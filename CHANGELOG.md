@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.5.6a3](https://github.com/TigreGotico/PyWikiHow/tree/0.5.6a3) (2025-12-19)
+
+[Full Changelog](https://github.com/TigreGotico/PyWikiHow/compare/0.5.6a2...0.5.6a3)
+
+**Merged pull requests:**
+
+- Update actions/checkout action to v6 [\#6](https://github.com/TigreGotico/PyWikiHow/pull/6) ([renovate[bot]](https://github.com/apps/renovate))
+- Update dependency python to 3.14 [\#5](https://github.com/TigreGotico/PyWikiHow/pull/5) ([renovate[bot]](https://github.com/apps/renovate))
+
 ## [0.5.6a2](https://github.com/TigreGotico/PyWikiHow/tree/0.5.6a2) (2025-12-19)
 
 [Full Changelog](https://github.com/TigreGotico/PyWikiHow/compare/0.5.6a1...0.5.6a2)
