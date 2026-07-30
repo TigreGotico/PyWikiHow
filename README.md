@@ -1,15 +1,17 @@
 # PyWikiHow
 
-An unofficial WikiWow python API. Uses BeautifulSoup to scrape WikiHow and return the data you want.
+PyWikiHow is an unofficial Python API for WikiHow. It uses BeautifulSoup to scrape a WikiHow page and return structured data: an intro, an ordered list of steps, and a title. It also supports search and random-article lookup.
 
-- [Installation](#install)
+- [Installation](#installation)
 - [Usage](#usage)
   * [Random How To](#random-how-to)
   * [Searching](#searching)
   * [Parsing](#parsing)
-
+- [Related projects](#related-projects)
+- [License](#license)
 
 ## Installation
+
 ```bash
 pip install pywikihow
 ```
@@ -18,7 +20,7 @@ pip install pywikihow
 
 ### Random How To
 
-Learn random stuff! Retuns a random WikiHow article. Sometimes they're weird.
+Get a random WikiHow article.
 
 ```python
 from pywikihow import RandomHowTo
@@ -40,7 +42,7 @@ assert len(how_tos) == 1
 how_tos[0].print()
 
 
-# for efficiency and to get unlimited entries, the best is to use the generator
+# for unlimited entries, use the generator instead
 for how_to in WikiHow.search("how to learn python"):
     how_to.print()
 
@@ -48,7 +50,7 @@ for how_to in WikiHow.search("how to learn python"):
 
 ### Parsing
 
-Manipulate HowTo objects
+Read and use `HowTo` objects.
 
 ```python
 from pywikihow import HowTo
@@ -70,7 +72,8 @@ data = first_step.as_dict()
 how_to.print(extended=True)
 
 ```
-Some articles have their topics subdivided into internal parts. The parent part of each step is kept on the field `part` of the step.
+
+Some articles divide their steps into parts. The `part` field of a step holds the name of its parent part.
 
 ```python
 print(first_step.part)
@@ -78,6 +81,13 @@ print(first_step.part)
 
 ### ToDo
 
-
 - Add parser for tips
 - Add parser for warnings
+
+## Related projects
+
+- [TigreGotico/ovos-skill-wikihow](https://github.com/TigreGotico/ovos-skill-wikihow) — an OpenVoiceOS skill that uses this library to answer "how to" questions.
+
+## License
+
+PyWikiHow is released under the [MIT License](LICENSE.md).
