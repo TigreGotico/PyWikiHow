@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.5.6a4](https://github.com/TigreGotico/PyWikiHow/tree/0.5.6a4) (2026-07-30)
+
+[Full Changelog](https://github.com/TigreGotico/PyWikiHow/compare/0.5.6a3...0.5.6a4)
+
+**Merged pull requests:**
+
+- docs: rewrite README in Simplified Technical English [\#11](https://github.com/TigreGotico/PyWikiHow/pull/11) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.5.6a3](https://github.com/TigreGotico/PyWikiHow/tree/0.5.6a3) (2025-12-19)
 
 [Full Changelog](https://github.com/TigreGotico/PyWikiHow/compare/0.5.6a2...0.5.6a3)
