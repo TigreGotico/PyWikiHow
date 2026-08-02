@@ -58,7 +58,7 @@ setup(
     name='pywikihow',
     version=get_version(),
     packages=['pywikihow'],
-    url='https://github.com/OpenJarbas/PyWikiHow',
+    url='https://github.com/LeMetadatarr/PyWikiHow',
     install_requires=required('requirements.txt'),
     license='MIT',
     author='jarbasai',
