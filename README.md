@@ -7,7 +7,6 @@ PyWikiHow is an unofficial Python API for WikiHow. It uses BeautifulSoup to scra
   * [Random How To](#random-how-to)
   * [Searching](#searching)
   * [Parsing](#parsing)
-- [Related projects](#related-projects)
 - [License](#license)
 
 ## Installation
@@ -83,10 +82,6 @@ print(first_step.part)
 
 - Add parser for tips
 - Add parser for warnings
-
-## Related projects
-
-- [TigreGotico/ovos-skill-wikihow](https://github.com/TigreGotico/ovos-skill-wikihow) — an OpenVoiceOS skill that uses this library to answer "how to" questions.
 
 ## License
 
