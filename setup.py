@@ -60,6 +60,7 @@ setup(
     packages=['pywikihow'],
     url='https://github.com/LeMetadatarr/PyWikiHow',
     install_requires=required('requirements.txt'),
+    extras_require={'test': ['pytest']},
     license='MIT',
     author='jarbasai',
     author_email='jarbasai@mailfence.com',

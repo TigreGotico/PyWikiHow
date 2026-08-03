@@ -78,6 +78,14 @@ Some articles divide their steps into parts. The `part` field of a step holds th
 print(first_step.part)
 ```
 
+Not every step has an illustration. When one exists, the `picture` field holds its URL; otherwise it is `None`.
+
+```python
+for step in how_to.steps:
+    if step.picture:
+        print(step.number, step.picture)
+```
+
 ### ToDo
 
 - Add parser for tips

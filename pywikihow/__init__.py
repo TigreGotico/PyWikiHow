@@ -1,4 +1,6 @@
 import re
+from urllib.parse import quote, unquote
+
 import bs4
 from pywikihow.exceptions import ParseError, UnsupportedLanguage
 from datetime import timedelta
@@ -131,7 +133,7 @@ class HowTo:
             self._url = html.find("a").get("href")
             if not self._url.startswith("http"):
                 self._url = "http://" + self._url
-            self._title = self._url.split("/")[-1].replace("-", " ")
+            self._title = unquote(self._url.split("/")[-1]).replace("-", " ")
 
     def _parse_intro(self, soup):
         # get article intro/summary
@@ -183,18 +185,24 @@ class HowTo:
                 self._steps.append(step)
 
     def _parse_pictures(self, soup):
-        # get step pic
-        count = 0
-        for html in soup.find_all("a", {"class": "image"}):
-            # one more ugly blob, nice :D
-            html = html.find("img")
-            i = str(html).find("data-src=")
-            pic = str(html)[i:].replace('data-src="', "")
-            pic = pic[:pic.find('"')]
-
-            # save in step
-            self._steps[count]._picture = pic
-            count += 1
+        # Step pictures are not nested inside their "step" div. Each one is
+        # identified by a "Step-<n>" token in its href, where <n> is the
+        # 1-based step number counting across the whole article (not reset
+        # per part), which lines up with the flat, DOM-ordered self._steps
+        # list. The intro/summary image has no such token and is skipped.
+        for link in soup.find_all("a", {"class": "image"}):
+            match = re.search(r"Step-(\d+)", link.get("href", ""))
+            if not match:
+                continue
+            index = int(match.group(1)) - 1
+            if not 0 <= index < len(self._steps):
+                continue
+            img = link.find("img")
+            if not img:
+                continue
+            pic = img.get("data-src") or img.get("src")
+            if pic:
+                self._steps[index]._picture = pic
 
     def _parse(self):
         try:
@@ -206,7 +214,7 @@ class HowTo:
             self._parse_pictures(soup)
             self._parsed = True
         except Exception as e:
-            raise ParseError
+            raise ParseError(str(e)) from e
 
     def as_dict(self):
         return {
@@ -254,7 +262,7 @@ class WikiHow:
         if lang not in WikiHow.lang2url:
             raise UnsupportedLanguage
         search_url = WikiHow.lang2url[lang] + \
-                     "wikiHowTo?search=" + search_term.replace(" ", "+")
+                     "wikiHowTo?search=" + quote(search_term)
         html = get_html(search_url)
         soup = bs4.BeautifulSoup(html, 'html.parser').find_all('a', attrs={
             'class': "result_link"})
